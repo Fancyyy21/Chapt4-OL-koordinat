@@ -1,7 +1,7 @@
 import {toLonLat} from 'https://cdn.skypack.dev/ol/proj.js';
 import {toStringHDMS} from 'https://cdn.skypack.dev/ol/coordinate.js';
 import {overlay,map,popupinfo,idmarker} from '../config/configpeta.js';
-import {clickpopup} from '../template/template.js';
+import {URLGeoJson, clickpopup, urlPostGCF} from '../template/template.js';
 import {insertMarker,deleteMarker} from './marker.js';
 import {setInner,textBlur,onClick, getValue,setValue} from 'https://jscroot.github.io/element/croot.js';
 import { postWithToken } from "https://jscroot.github.io/api/croot.js";
@@ -24,7 +24,7 @@ export function onSubmitMarkerClick() {
     let name = getValue('name');
     let volume = getValue('volume');
     let data = {long,lat,volume};
-    postWithToken("https://eocq0jlejeprcwr.m.pipedream.net","Token","705baf9c50e5e194fd3ab23c5ae4a1cb",data,afterSubmitCOG);
+    postWithToken(urlPostGCF,"Token","a037ba4431752d1882700730e5c1e1e0",data,afterSubmitCOG);
     overlay.setPosition(undefined);
     textBlur('popup-closer');
     insertMarker(name,long,lat,volume);
