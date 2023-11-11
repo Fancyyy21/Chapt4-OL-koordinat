@@ -1,4 +1,4 @@
-export let URLGeoJson = "https://us-central1-annular-hexagon-401501.cloudfunctions.net/function-3";
+export let URLGeoJson = "https://us-central1-vivid-vent-401501.cloudfunctions.net/function-2";
 export let urlPostGCF = "https://asia-southeast2-vivid-vent-401501.cloudfunctions.net/test-post";
 export let tableTag="tr";
 export let tableRowClass="content is-small";
