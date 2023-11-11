@@ -23,7 +23,13 @@ export function onSubmitMarkerClick() {
     let lat = getValue('lat');
     let name = getValue('name');
     let volume = getValue('volume');
-    let data = {long,lat,volume};
+    let data = {
+      "name" : name,
+      "volume" : volume,
+      "coordinates" : [
+        parseFloat(long),parseFloat(lat)
+      ]
+    };
     postWithToken(urlPostGCF,"Token","a037ba4431752d1882700730e5c1e1e0",data,afterSubmitCOG);
     overlay.setPosition(undefined);
     textBlur('popup-closer');
@@ -82,3 +88,9 @@ export function onMapClick(evt) {
         popupGetMarker(evt,feature);
     }
   }
+
+  export function GetLonLat(evt) {
+    var point = map.getCoordinateFromPixel(evt.pixel);
+    var lonLat = ol.proj.toLonLat(point); 
+    console.log(lonLat);  // note the ordering of the numbers
+}
